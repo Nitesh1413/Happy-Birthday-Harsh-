@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a nice typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library for the celebration effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf2f8;
+            /* Light pink background */
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        /* Glassmorphism effect for cards */
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        /* Simple floating animation */
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        /* Fade in animation for elements */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 antialiased selection:bg-pink-300 selection:text-pink-900">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center relative px-4 overflow-hidden">
+        <!-- Background decorative circles -->
+        <div class="absolute top-[-10%] left-[-10%] w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-4000"></div>
+
+        <div class="z-10 text-center glass-card p-10 md:p-16 rounded-3xl max-w-3xl w-full mx-auto shadow-2xl">
+            <h2 class="text-2xl md:text-3xl text-pink-500 font-semibold mb-2 tracking-widest uppercase">It's a Special Day!</h2>
+            <h1 class="text-6xl md:text-8xl font-bold title-font text-pink-600 mb-6 drop-shadow-sm animate-float">Happy Birthday, <br/><span class="text-purple-600">Harsh</span>!</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+                Wishing you a day filled with happiness and a year filled with joy. You deserve all the best things in the world today.
+            </p>
+            <button id="celebrateBtn" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transform transition hover:scale-105 duration-300 text-lg">
+                Click to Celebrate! 🎉
+            </button>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-10 animate-bounce cursor-pointer">
+            <a href="#message" class="text-pink-500 hover:text-pink-700">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="message" class="py-20 px-4 bg-white/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card p-8 md:p-12 rounded-2xl fade-in">
+                <h3 class="text-4xl title-font text-center text-purple-600 mb-8">A Special Message for You</h3>
+                <div class="prose prose-lg mx-auto text-gray-700 space-y-6">
+                    <p>
+                        Hey Harsh,
+                    </p>
+                    <p>
+                        Wishing you the happiest of birthdays, bro! You're an awesome friend and I'm glad we got to celebrate together.
+                    </p>
+                    <p>
+                        This little website is a special gift just for you. Hope this year brings you all the success, happiness, and great moments you deserve. Keep shining!
+                    </p>
+                    <p>
+                        Enjoy your day to the fullest!
+                    </p>
+                    <p class="font-semibold text-right mt-8 text-pink-600">
+                        Cheers,<br/> Your Friend
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Lane / Gallery Section -->
+    <section id="memories" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-5xl title-font text-center text-pink-600 mb-12 fade-in">Our Memories Together</h3>
+
+            <div class="mb-12 max-w-2xl mx-auto">
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in cursor-pointer bg-white p-2 border border-gray-100 transform transition duration-500 hover:scale-[1.02]">
+                    <img src="https://storage.googleapis.com/gemini-artifacts-assets/775c023d-c7de-49da-bf72-4d221bdc60fb.jpeg" alt="Cake Cutting Celebration" class="w-full h-auto rounded-xl object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 rounded-xl m-2">
+                        <span class="text-white font-bold text-2xl title-font mb-1">Cake Cutting Time!</span>
+                        <span class="text-gray-200 text-sm">Great moments with great friends.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/fbcfe8/be185d?text=Our+Pic+1" alt="Memory 1" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">That crazy day!</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200 delay-100">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/f3e8ff/7e22ce?text=Our+Pic+2" alt="Memory 2" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">Best trip ever</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200 delay-200">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/fef08a/a16207?text=Our+Pic+3" alt="Memory 3" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">Just chilling</span>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/e0f2fe/0369a1?text=Our+Pic+4" alt="Memory 4" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">Unforgettable moments</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200 delay-100">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/dcfce7/15803d?text=Our+Pic+5" alt="Memory 5" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">Laughs and giggles</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg fade-in cursor-pointer aspect-square bg-gray-200 delay-200">
+                    <!-- REPLACE WITH ACTUAL IMAGE URL -->
+                    <img src="https://placehold.co/600x600/ffedd5/c2410c?text=Our+Pic+6" alt="Memory 6" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-medium text-lg">Cheers to many more!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 bg-white/30 border-t border-white/40">
+        <p>Made with ❤️ specially for you.</p>
+    </footer>
+
+    <script>
+        // Confetti Celebration Logic
+        const celebrateBtn = document.getElementById('celebrateBtn');
+
+        celebrateBtn.addEventListener('click', () => {
+            // First burst
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: {
+                    y: 0.6
+                },
+                colors: ['#ec4899', '#a855f7', '#eab308', '#3b82f6'] // Pink, Purple, Yellow, Blue
+            });
+
+            // Make it a bit more festive with multiple bursts
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    angle: 60,
+                    spread: 55,
+                    origin: {
+                        x: 0
+                    }
+                });
+                confetti({
+                    particleCount: 100,
+                    angle: 120,
+                    spread: 55,
+                    origin: {
+                        x: 1
+                    }
+                });
+            }, 250);
+
+            // Optional: Change button text temporarily
+            const originalText = celebrateBtn.innerHTML;
+            celebrateBtn.innerHTML = "Woohoo! 🥳";
+            setTimeout(() => {
+                celebrateBtn.innerHTML = originalText;
+            }, 2000);
+        });
+
+        // Intersection Observer for scroll animations (fade-in)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Unobserve once animated
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the 'fade-in' class
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Auto-trigger a small confetti pop on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                confetti({
+                    particleCount: 50,
+                    spread: 100,
+                    origin: {
+                        y: 0.1
+                    },
+                    colors: ['#ec4899', '#a855f7']
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
